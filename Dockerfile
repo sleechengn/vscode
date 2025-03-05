@@ -41,5 +41,15 @@ RUN set -e \
 	&& code --extensions-dir /config/vscode/extensions --user-data-dir /config/vscode/user --install-extension ms-python.vscode-pylance \
 	&& code --extensions-dir /config/vscode/extensions --user-data-dir /config/vscode/user --install-extension ms-python.python
 
+RUN set -e \
+        && cd /opt \
+        && aria2c --max-connection-per-server=10 --min-split-size=1M --max-concurrent-downloads=10 https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz \
+        && tar -zxvf apache-maven-3.9.9-bin.tar.gz \
+        && rm -rf apache-maven-3.9.9-bin.tar.gz \
+        && ln -s /opt/apache-maven-3.9.9/bin/mvn /usr/bin/mvn
+
+RUN set -e \
+	&& sed -i 's,\:\/root\:,:/config:,g' /etc/passwd
+
 # kasmvnc autostart and menu
 COPY ./root /
