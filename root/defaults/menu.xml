@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+<menu id="root-menu" label="MENU">
+<item label="xterm" icon="/usr/share/pixmaps/xterm-color_48x48.xpm">
+	<action name="Execute">
+		<command>/usr/bin/xterm</command>
+	</action>
+</item>
+<item label="konsole" icon="/usr/share/pixmaps/xterm-color_48x48.xpm">
+	<action name="Execute">
+		<command>/usr/bin/konsole</command>
+	</action>
+</item>
+<item label="vscode" icon="/usr/share/pixmaps/xterm-color_48x48.xpm">
+	<action name="Execute">
+		<command>sudo code --no-sandbox --extensions-dir /config/vscode/extensions --user-data-dir /config/vscode/user</command>
+	</action>
+</item>
+</menu>
+</openbox_menu>

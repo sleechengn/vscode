@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+sudo code --no-sandbox --extensions-dir /config/vscode/extensions --user-data-dir /config/vscode/user
