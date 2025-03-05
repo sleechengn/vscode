@@ -51,5 +51,10 @@ RUN set -e \
 RUN set -e \
 	&& sed -i 's,\:\/root\:,:/config:,g' /etc/passwd
 
+RUN set -e \
+	&& apt install -y language-pack-zh-hans \
+	&& locale-gen zh_CN.UTF-8 \
+	&& update-locale LANG=zh_CN.UTF-8
+
 # kasmvnc autostart and menu
 COPY ./root /
